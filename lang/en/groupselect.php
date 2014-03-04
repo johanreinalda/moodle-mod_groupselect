@@ -31,3 +31,5 @@ $string['select'] = 'Become member of {$a}';
 $string['targetgrouping'] = 'Select group from grouping';
 $string['timeavailable'] = 'Open from';
 $string['timedue'] = 'Open until';
+$string['groupselect:addinstance'] = 'Add a new Group selection block';
+$string['groupselect:myaddinstance'] = 'Add a new Group selection block to My Home';
