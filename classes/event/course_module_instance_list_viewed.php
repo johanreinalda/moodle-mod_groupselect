@@ -15,20 +15,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Group self selection
+ * The mod_groupselect course module instance list viewed event.
  *
- * @package    mod
- * @subpackage groupselect
- * @copyright  2008-2011 Petr Skoda (http://skodak.org)
+ * @package    mod_groupselect
+ * @copyright  2014 Johan Reinalda
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
-
-$module->version   = 2014052100; // The current module version (Date: YYYYMMDDXX)
-$module->requires  = 2014051200; // Requires this Moodle version
-$module->cron      = 0;          // Period for cron to check this module (secs)
-$module->component = 'mod_groupselect'; // Full name of the plugin (used for diagnostics)
-
-$module->maturity  = MATURITY_BETA;
-$module->release   = "2.1beta1 (20111018)"; // User-friendly version number
+namespace mod_groupselect\event;
+defined('MOODLE_INTERNAL') || die();
+class course_module_instance_list_viewed extends \core\event\course_module_instance_list_viewed {
+}

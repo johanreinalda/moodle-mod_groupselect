@@ -45,9 +45,15 @@ if ($g) {
 $course = $DB->get_record('course', array('id'=>$cm->course), '*', MUST_EXIST);
 
 require_login($course, true, $cm);
-$context = get_context_instance(CONTEXT_MODULE, $cm->id);
+$context = context_module::instance($cm->id) ;
 
-add_to_log($course->id, 'groupselect', 'view', 'view.php?id='.$cm->id, $groupselect->id, $cm->id);
+//add_to_log($course->id, 'groupselect', 'view', 'view.php?id='.$cm->id, $groupselect->id, $cm->id);
+$event = \mod_groupselect\event\course_module_viewed::create(array(
+        'objectid' => $cm->id,
+        'context' => $context,
+));
+$event->add_record_snapshot('course', $PAGE->course);
+$event->trigger();
 
 $PAGE->set_url('/mod/groupselect/view.php', array('id' => $cm->id));
 $PAGE->add_body_class('mod_groupselect');
